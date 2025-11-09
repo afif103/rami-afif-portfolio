@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Rami Afif - Junior AI/ML Engineer | 7 Live AI Apps | LLMOps, RAG, LangChain"/>
+  <title>Rami Afif - AI/ML Engineer | 7 Live Apps</title>
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rami Afif - AI/ML Engineer"/>
+  <meta property="og:description" content="7 Production AI Apps | LLMOps | RAG | LangChain"/>
+  <meta property="og:image" content="https://rami-afif.vercel.app/images/preview.jpg"/>
+  <meta property="og:url" content="https://rami-afif.vercel.app"/>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --bg: #f0f4f8;
+      --text: #222;
+      --card: #ffffff;
+      --primary: #007BFF;
+      --shadow: rgba(0,0,0,0.1);
+      --border: #e0e0e0;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --card: #1e1e1e;
+      --primary: #4dabf7;
+      --shadow: rgba(0,0,0,0.3);
+      --border: #333;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    header h1 { font-size: 3rem; font-weight: 700; }
+    header .title { font-size: 1.4rem; opacity: 0.95; }
+    .contact { margin-top: 18px; font-size: 1.1rem; }
+    .contact a { color: #a5d8ff; text-decoration: none; margin: 0 10px; font-weight: 600; }
+    .contact a:hover { text-decoration: underline; }
+
+    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    .section { background: var(--card); margin: 30px 0; padding: 35px; border-radius: 14px; box-shadow: 0 6px 18px var(--shadow); }
+    h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #e3f2fd;
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    [data-theme="dark"] h2 { border-color: #333; }
+
+    .summary { font-size: 1.15rem; color: #444; }
+    [data-theme="dark"] .summary { color: #ccc; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px var(--shadow);
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px var(--shadow);
+    }
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 3px solid var(--primary);
+    }
+    .project-content { padding: 18px; }
+    .project-title { font-size: 1.25rem; color: #0d47a1; margin-bottom: 8px; font-weight: 600; }
+    [data-theme="dark"] .project-title { color: #4dabf7; }
+    .project-meta { font-size: 0.9rem; color: #666; margin-bottom: 12px; }
+    [data-theme="dark"] .project-meta { color: #aaa; }
+    .project-meta a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      margin-right: 12px;
+    }
+    .project-desc { font-size: 0.95rem; color: #555; margin-bottom: 12px; }
+    [data-theme="dark"] .project-desc { color: #bbb; }
+    .tech-stack { font-size: 0.85rem; color: #444; }
+    [data-theme="dark"] .tech-stack { color: #ccc; }
+    .tech-stack strong { color: #000; }
+    [data-theme="dark"] .tech-stack strong { color: #fff; }
+
+    .live-badge {
+      background: #28a745;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111;
+      color: #aaa;
+      font-size: 0.95rem;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.3rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <header>
+    <button class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon"></i>
+    </button>
+    <h1>RAMI AFIF</h1>
+    <p class="title">Junior AI/ML Engineer | LLMOps & Full-Stack MLOps</p>
+    <div class="contact">
+      <p>Zamboanga City, Philippines • +639672784754 • rami.afif88@gmail.com</p>
+      <p>
+        <a href="https://linkedin.com/in/rami-afif" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> • 
+        <a href="https://github.com/afif103" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section class="section">
+      <h2><i class="fas fa-user-tie"></i> Professional Summary</h2>
+      <p class="summary">
+        Computer Engineering graduate with 2 years of software development (Visual Basic + SQL) and 12 years of project execution in construction. 
+        Recently transitioned into AI/ML engineering via <strong>DataCamp’s Associate AI Engineer for Developers</strong> certification. 
+        Built and deployed <strong>7 live AI apps</strong> using XGBoost, Flask, Streamlit, LangChain, RAG, and LLMOps. 
+        Proven problem-solving, time management, and delivery under pressure. LLMOps-ready: embeddings, Pinecone, LangChain, production guardrails. 
+        <strong>Ready to ship production AI systems.</strong>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2><i class="fas fa-rocket"></i> Live AI Projects <span class="live-badge">7 LIVE</span></h2>
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card">
+          <img src="/images/house-price.jpg" alt="AI House Price Predictor" class="project-img">
+          <div class="project-content">
+            <div class="project-title">AI House Price Predictor – Full-Stack MLOps System</div>
+            <div class="project-meta">
+              Oct–Nov 2025 | 
+              <a href="#" target="_blank">Live Demo</a> • 
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+            <div class="project-desc">
+              Trained XGBoost on 4,162 homes → R² 0.52, RMSE $198K. Flask API + Streamlit UI. Dual-deployed on Render.com + Streamlit Cloud.
+            </div>
+            <div class="tech-stack"><strong>Tech:</strong> XGBoost, Flask, Streamlit, Render.com, Streamlit Cloud</div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <img src="/images/movie-recommender.jpg" alt="AI Movie Recommender" class="project-img">
+          <div class="project-content">
+            <div class="project-title">AI Movie Recommender</div>
+            <div class="project-meta">
+              Nov 2025 | 
+              <a href="#" target="_blank">Live Demo</a> • 
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+            <div class="project-desc">
+              RAG pipeline with Llama 3.2 + Chroma + Groq. 1-file Streamlit app with local/cloud fallback.
+            </div>
+            <div class="tech-stack"><strong>Tech:</strong> LangChain, Chroma, Groq, Streamlit</div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <img src="/images/chatbot.jpg" alt="AI Chatbot" class="project-img">
+          <div class="project-content">
+            <div class="project-title">AI Chatbot — Live Web App</div>
+            <div class="project-meta">
+              Nov 2025 | 
+              <a href="#" target="_blank">Live Demo</a> • 
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+            <div class="project-desc">
+              Real-time assistant with Llama 3.1 via Groq. LangChain streaming + Ollama fallback.
+            </div>
+            <div class="tech-stack"><strong>Tech:</strong> LangChain, Groq, Streamlit Cloud</div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <img src="/images/image-classifier.jpg" alt="Zero-Shot Image Classifier" class="project-img">
+          <div class="project-content">
+            <div class="project-title">Zero-Shot Image Classifier</div>
+            <div class="project-meta">
+              Nov 2025 | 
+              <a href="#" target="_blank">Live Demo</a> • 
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+            <div class="project-desc">
+              Vision classifier with Llama 4 Scout (17B). Custom labels + JSON output in <1.5s.
+            </div>
+            <div class="tech-stack"><strong>Tech:</strong> Groq, Llama 4, LangChain, Streamlit</div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card">
+          <img src="/images/resume-analyzer.jpg" alt="AI Resume Analyzer" class="project-img">
+          <div class="project-content">
+            <div class="project-title">AI Resume Analyzer</div>
+            <div class="project-meta">
+              Nov 2025 | 
+              <a href="#" target="_blank">Live Demo</a> • 
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+            <div class="project-desc">
+              RAG over PDF resumes with FAISS + Ollama. 100% local, private, secure.
+            </div>
+            <div class="tech-stack"><strong>Tech:</strong> LangChain, FAISS, Ollama, PyPDF2</div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card">
+          <img src="/images/job-matcher.jpg" alt="AI Job Matcher" class="project-img">
+          <div class="project-content">
+            <div class="project-title">AI Job Matcher</div>
+            <div class="project-meta">
+              Nov 2025 | 
+              <a href="#" target="_blank">Live Demo</a> • 
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+            <div class="project-desc">
+              GPU-accelerated resume-job matcher. Match score + AI edits + PDF report.
+            </div>
+            <div class="tech-stack"><strong>Tech:</strong> CUDA, HuggingFace, FAISS, fpdf</div>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card">
+          <img src="/images/news-summarizer.jpg" alt="AI News Summarizer" class="project-img">
+          <div class="project-content">
+            <div class="project-title">AI News Summarizer</div>
+            <div class="project-meta">
+              Nov 2025 | 
+              <a href="#" target="_blank">Live Demo</a> • 
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+            <div class="project-desc">
+              Daily AI news digest with Llama 3.2 + embeddings. Zero-cost, offline-first.
+            </div>
+            <div class="tech-stack"><strong>Tech:</strong> Ollama, FAISS, Streamlit, fpdf</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Rami Afif. All rights reserved. Hosted on <strong>Vercel</strong> • Never sleeps</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = toggle.querySelector('i');
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      icon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    toggle.addEventListener('click', () => {
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.setAttribute('data-theme', 'light');
+        icon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        icon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
