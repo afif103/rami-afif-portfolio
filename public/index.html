@@ -79,7 +79,7 @@
     .stat { text-align:center; }
     .stat-number { font-size:2.5rem; font-weight:800; background:linear-gradient(135deg,#06b6d4,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; display:block; }
     .stat-label { color:var(--text-secondary); font-size:0.95rem; font-weight:500; }
-    .cta-buttons { display:flex; gap:1.5rem; justify-content:center; animation:fadeInUp 0.8s 0.8s both; }
+    .cta-buttons { display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; animation:fadeInUp 0.8s 0.8s both; }
     .btn { padding:1rem 2.5rem; border-radius:12px; font-weight:600; font-size:1rem; cursor:pointer; transition:all 0.3s; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; border:none; }
     .btn-primary { background:linear-gradient(135deg,#06b6d4,#3b82f6); color:#fff; box-shadow:0 10px 30px rgba(59,130,246,0.3); }
     .btn-primary:hover { transform:translateY(-3px); box-shadow:0 15px 40px rgba(59,130,246,0.4); }
@@ -315,6 +315,7 @@
       </div>
       <div class="cta-buttons">
         <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
+        <a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> View Resume</a>
         <a href="https://github.com/afif103" target="_blank" rel="noopener" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
         <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Contact Me</a>
       </div>
@@ -841,6 +842,10 @@
         </div>
         <div class="footer-section">
           <h3>Links</h3>
+          <a href="/resume.pdf" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.5rem">
+            <i class="fas fa-file-pdf"></i>
+            <span>Download Resume</span>
+          </a>
           <a href="https://github.com/afif103" target="_blank" style="display:flex;align-items:center;gap:0.5rem">
             <i class="fab fa-github"></i>
             <span>GitHub Profile</span>
