@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Rami Afif - AI Engineer specializing in LLMOps, RAG Systems, and Production AI Applications"/>
-  <title>Rami Afif - AI Engineer | 8 Production Apps</title>
+  <meta name="description" content="Rami Afif — Full-Stack AI Engineer building production-style AI and SaaS systems with FastAPI, Next.js, PostgreSQL, Redis, and LLM workflows. Shipped a multi-tenant Storefront + POS SaaS and a full-stack AI platform."/>
+  <meta name="author" content="Rami Afif"/>
+  <title>Rami Afif — Full-Stack AI Engineer | AI + SaaS Systems</title>
   
-  <meta property="og:title" content="Rami Afif - AI Engineer"/>
-  <meta property="og:description" content="8 Production AI Apps | LLMOps | RAG | Full-Stack AI"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Rami Afif — Full-Stack AI Engineer"/>
+  <meta property="og:description" content="Full-Stack AI Engineer building production-style AI + SaaS systems — FastAPI · Next.js · PostgreSQL · AWS. 2 full-stack platforms + AI demo apps."/>
   <meta property="og:url" content="https://rami-afif-portfolio.vercel.app"/>
+  <meta property="og:image" content="https://rami-afif-portfolio.vercel.app/images/profile.jpg"/>
+
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Rami Afif — Full-Stack AI Engineer"/>
+  <meta name="twitter:description" content="Building production-style AI + SaaS systems — FastAPI · Next.js · PostgreSQL · AWS. 2 full-stack platforms + AI demo apps."/>
+  <meta name="twitter:image" content="https://rami-afif-portfolio.vercel.app/images/profile.jpg"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -242,6 +250,36 @@
       }
     }
     
+    /* --- Added: hero highlights, SaaS featured mock, skill tags --- */
+    .hero-highlights { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-bottom:3rem; animation:fadeInUp 0.8s 0.6s both; }
+    .hl-pill { display:inline-flex; align-items:center; gap:0.5rem; background:var(--bg-card); border:1px solid var(--border); color:var(--text-primary); padding:0.6rem 1.2rem; border-radius:50px; font-weight:600; font-size:0.95rem; }
+    .hl-pill i { color:var(--accent-cyan); }
+    .featured-note { font-size:0.8rem; color:var(--text-secondary); margin-top:0.85rem; display:flex; align-items:center; gap:0.4rem; }
+    .skills-grid { display:grid; grid-template-columns:1fr; gap:1.75rem 2rem; }
+    .skill-group h4 { font-size:1.05rem; margin-bottom:0.85rem; color:var(--accent-cyan); }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:0.6rem; }
+    .skill-tag { background:var(--bg-secondary); color:var(--text-primary); border:1px solid var(--border); padding:0.45rem 0.9rem; border-radius:8px; font-size:0.85rem; font-weight:500; transition:all 0.2s; }
+    .skill-tag:hover { border-color:var(--accent-cyan); color:var(--accent-cyan); }
+    /* SaaS featured mock panel (CSS-only, illustrative UI — no image asset) */
+    .saas-mock { border:1px solid var(--border); border-radius:14px; overflow:hidden; margin-bottom:2rem; background:var(--bg-secondary); box-shadow:0 10px 30px var(--shadow); }
+    .saas-mock-bar { display:flex; align-items:center; gap:0.5rem; padding:0.7rem 1rem; background:var(--bg-card); border-bottom:1px solid var(--border); }
+    .saas-mock-bar .dot { width:11px; height:11px; border-radius:50%; background:var(--border); flex:none; }
+    .saas-mock-bar .dot:nth-child(1) { background:#ef4444; }
+    .saas-mock-bar .dot:nth-child(2) { background:#f59e0b; }
+    .saas-mock-bar .dot:nth-child(3) { background:#22c55e; }
+    .saas-mock-url { font-size:0.8rem; color:var(--text-secondary); margin-left:0.5rem; }
+    .saas-lang { margin-left:auto; font-size:0.75rem; font-weight:700; color:var(--accent-cyan); border:1px solid var(--accent-cyan); border-radius:50px; padding:0.15rem 0.6rem; flex:none; }
+    .saas-mock-body { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:0.85rem; padding:1.25rem; }
+    .saas-tile { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:0.9rem; }
+    .saas-tile span { display:block; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-secondary); margin-bottom:0.35rem; }
+    .saas-tile strong { font-size:0.95rem; color:var(--text-primary); font-weight:700; }
+    .saas-pos { grid-column:1 / -1; background:var(--bg-card); border:1px dashed var(--border); border-radius:10px; padding:0.9rem; }
+    .saas-pos-row { font-size:0.85rem; color:var(--text-primary); }
+    .saas-pos-row.muted { font-size:0.78rem; color:var(--text-secondary); margin-top:0.3rem; }
+    @media (min-width:600px) { .skills-grid { grid-template-columns:1fr 1fr; } }
+    @media (min-width:1025px) { .skills-grid { grid-template-columns:repeat(4,1fr); } }
+    @media (max-width:480px) { .saas-mock-url { display:none; } }
+
     html { scroll-behavior:smooth; }
   </style>
 </head>
@@ -255,28 +293,30 @@
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-        <button class="theme-toggle" id="themeToggle"><i class="fas fa-sun"></i></button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light theme"><i class="fas fa-sun"></i></button>
       </div>
     </div>
   </nav>
 
   <section class="hero">
     <div class="container">
-      <h1>AI Engineer</h1>
-      <p class="subtitle">Building Production-Grade AI Systems with LLMOps & Full-Stack ML</p>
+      <h1>Full-Stack AI Engineer</h1>
+      <p class="subtitle">Building production-style AI + SaaS systems with FastAPI, Next.js, PostgreSQL, and LLM workflows — shipped as deployed MVPs.</p>
       <p class="description">
-        Computer Engineering graduate with production development experience, now specializing in AI.
-        Built and deployed 8 AI applications in a focused 3-month sprint, including an enterprise-grade
-        production platform. Expert in RAG architectures, multi-agent systems, and scalable production AI.
+        I'm Rami Afif. I design and build AI and SaaS products end-to-end — from FastAPI / PostgreSQL
+        backends to Next.js / TypeScript frontends — and ship them as deployed, clickable MVPs. Recent
+        work includes a multi-tenant Storefront + POS SaaS and a full-stack AI productivity platform,
+        alongside a set of focused AI demo apps.
       </p>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-number">8</span><span class="stat-label">Live AI Apps</span></div>
-        <div class="stat"><span class="stat-number">&lt;200ms</span><span class="stat-label">Response Time</span></div>
-        <div class="stat"><span class="stat-number">100%</span><span class="stat-label">Uptime</span></div>
+      <div class="hero-highlights">
+        <span class="hl-pill"><i class="fas fa-layer-group"></i> 2 Full-Stack Platforms</span>
+        <span class="hl-pill"><i class="fas fa-robot"></i> AI + SaaS Portfolio</span>
+        <span class="hl-pill"><i class="fas fa-cloud"></i> FastAPI · Next.js · AWS</span>
       </div>
       <div class="cta-buttons">
         <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
-        <a href="https://github.com/afif103" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://github.com/afif103" target="_blank" rel="noopener" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+        <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Contact Me</a>
       </div>
     </div>
   </section>
@@ -298,7 +338,7 @@
             </div>
           </div>
           <h3 style="font-size:1.5rem;margin-bottom:0.5rem;color:var(--text-primary)">Rami Afif</h3>
-          <p style="color:var(--accent-cyan);font-weight:600;margin-bottom:1rem">AI Engineer</p>
+          <p style="color:var(--accent-cyan);font-weight:600;margin-bottom:1rem">Full-Stack AI Engineer</p>
 
           <a href="https://www.datacamp.com/certificate/AIEDA0016005866805" target="_blank" style="display:block;padding:1rem;background:linear-gradient(135deg,rgba(6,182,212,0.15),rgba(139,92,246,0.15));border:2px solid var(--accent-cyan);border-radius:12px;text-decoration:none;margin-bottom:1.5rem;transition:all 0.3s" onmouseover="this.style.transform='scale(1.05)';this.style.borderColor='#3b82f6'" onmouseout="this.style.transform='scale(1)';this.style.borderColor='var(--accent-cyan)'">
             <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem">
@@ -354,58 +394,61 @@
             <a href="https://www.datacamp.com/certificate/AIEDA0016005866805" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.3rem 0.7rem;background:linear-gradient(135deg,rgba(6,182,212,0.2),rgba(139,92,246,0.2));border:1.5px solid var(--accent-cyan);border-radius:6px;color:var(--accent-cyan);text-decoration:none;font-weight:700;transition:all 0.3s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(6,182,212,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'"><i class="fas fa-certificate" style="font-size:0.9rem"></i>Associate AI Engineer certification from DataCamp</a> <strong>(November 2025)</strong>.
           </p>
           <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:1.5rem">
-            Then I went into build mode. In a <strong>focused 3-month sprint</strong>, I built and deployed
-            <strong>8 AI applications</strong>—7 specialized tools on Streamlit Cloud and 1 enterprise-grade production platform (APE).
-            These aren't tutorial copies; they're working systems solving real problems.
+            Then I went into build mode. Over a <strong>focused build period</strong>, I built and shipped
+            <strong>two full-stack platforms</strong> — a multi-tenant Storefront + POS SaaS and APE (an AI productivity
+            engine) — plus a set of focused AI demo apps on Streamlit Cloud. These aren't tutorial copies; they're
+            working systems solving real problems.
           </p>
           <p style="color:var(--text-secondary);line-height:1.8">
-            My flagship <strong>APE (AI Productivity Engine)</strong> is production-ready: FastAPI + PostgreSQL + Redis + ChromaDB,
-            multi-agent orchestration, sub-200ms response times designed for 100+ concurrent users, deployed on AWS EC2 with Docker.
-            This represents the kind of enterprise AI system I want to build professionally.
+            My platforms are production-style. My <strong>Storefront + POS SaaS</strong> uses FastAPI, a multi-tenant
+            PostgreSQL design, and Redis with a Next.js / TypeScript frontend and AWS deployment services; <strong>APE</strong>
+            pairs FastAPI + PostgreSQL + Redis + ChromaDB with multi-agent orchestration, async batch processing, and
+            Docker-based deployment designed for low-latency responses under concurrent use.
+            This is the kind of full-stack AI + SaaS work I want to do professionally.
           </p>
         </div>
       </div>
       
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start">
         <div>
-          <h3 style="font-size:1.8rem;margin-bottom:1.5rem;color:var(--text-primary)">What Makes Me Different</h3>
+          <h3 style="font-size:1.8rem;margin-bottom:1.5rem;color:var(--text-primary)">Why Hire Me</h3>
           
           <div style="background:var(--bg-card);padding:1.5rem;border-radius:12px;border:1px solid var(--border);margin-bottom:1.5rem">
             <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
-              <i class="fas fa-laptop-code" style="font-size:2rem;color:var(--accent-cyan)"></i>
+              <i class="fas fa-bolt" style="font-size:2rem;color:var(--accent-cyan)"></i>
               <div>
-                <h4 style="font-size:1.1rem;margin-bottom:0.25rem">3-Month AI Sprint</h4>
-                <p style="font-size:0.9rem;color:var(--text-secondary)">Built 8 production apps after intensive learning period</p>
+                <h4 style="font-size:1.1rem;margin-bottom:0.25rem">Ships Independently</h4>
+                <p style="font-size:0.9rem;color:var(--text-secondary)">Takes features from idea to a deployed demo solo — I plan, build, and release.</p>
               </div>
             </div>
           </div>
           
           <div style="background:var(--bg-card);padding:1.5rem;border-radius:12px;border:1px solid var(--border);margin-bottom:1.5rem">
             <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
-              <i class="fas fa-brain" style="font-size:2rem;color:var(--accent-cyan)"></i>
+              <i class="fas fa-diagram-project" style="font-size:2rem;color:var(--accent-cyan)"></i>
               <div>
-                <h4 style="font-size:1.1rem;margin-bottom:0.25rem">Production-First Mindset</h4>
-                <p style="font-size:0.9rem;color:var(--text-secondary)">Built hiring systems used by real businesses since 2010</p>
+                <h4 style="font-size:1.1rem;margin-bottom:0.25rem">Full-Stack Product Thinking</h4>
+                <p style="font-size:0.9rem;color:var(--text-secondary)">Builds complete flows — storefront, dashboard, POS, API, and database — not isolated scripts.</p>
               </div>
             </div>
           </div>
           
           <div style="background:var(--bg-card);padding:1.5rem;border-radius:12px;border:1px solid var(--border);margin-bottom:1.5rem">
             <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
-              <i class="fas fa-rocket" style="font-size:2rem;color:var(--accent-cyan)"></i>
+              <i class="fas fa-code-branch" style="font-size:2rem;color:var(--accent-cyan)"></i>
               <div>
-                <h4 style="font-size:1.1rem;margin-bottom:0.25rem">Data-Driven Project Manager</h4>
-                <p style="font-size:0.9rem;color:var(--text-secondary)">12 years creating schedules, BOMs, reports—analytical skills that translate to software</p>
+                <h4 style="font-size:1.1rem;margin-bottom:0.25rem">AI Used Responsibly</h4>
+                <p style="font-size:0.9rem;color:var(--text-secondary)">Uses AI tools seriously — but with human review, testing, and a proper Git workflow.</p>
               </div>
             </div>
           </div>
           
           <div style="background:var(--bg-card);padding:1.5rem;border-radius:12px;border:1px solid var(--border)">
             <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
-              <i class="fas fa-code" style="font-size:2rem;color:var(--accent-cyan)"></i>
+              <i class="fas fa-rocket" style="font-size:2rem;color:var(--accent-cyan)"></i>
               <div>
-                <h4 style="font-size:1.1rem;margin-bottom:0.25rem">Portfolio + Production</h4>
-                <p style="font-size:0.9rem;color:var(--text-secondary)">7 live Streamlit demos + 1 enterprise production platform (APE)</p>
+                <h4 style="font-size:1.1rem;margin-bottom:0.25rem">Idea → Deployed MVP</h4>
+                <p style="font-size:0.9rem;color:var(--text-secondary)">Turns an idea into a working, deployed MVP a hiring manager can click through.</p>
               </div>
             </div>
           </div>
@@ -420,7 +463,7 @@
               <div style="background:var(--bg-card);padding:1.25rem;border-radius:12px;border:1px solid var(--border)">
                 <div style="font-size:0.85rem;color:var(--accent-cyan);font-weight:600;margin-bottom:0.5rem">Nov 2024 – Present</div>
                 <h4 style="font-size:1.1rem;margin-bottom:0.5rem">AI Engineer (Self-Employed)</h4>
-                <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.6">Built and deployed 8 AI applications: RAG systems, multi-agent platform, GPU-accelerated ML, full-stack deployment. APE production platform serves as enterprise-grade portfolio centerpiece.</p>
+                <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.6">Built and deployed two full-stack platforms — a multi-tenant Storefront + POS SaaS and APE (AI productivity engine) — plus a set of focused AI demo apps spanning RAG, multi-agent workflows, and GPU-accelerated ML.</p>
               </div>
             </div>
             
@@ -462,7 +505,7 @@
           <div style="margin-top:2rem;padding:1.5rem;background:linear-gradient(135deg,rgba(6,182,212,0.1),rgba(139,92,246,0.1));border-radius:12px;border:1px solid var(--accent-cyan)">
             <h4 style="font-size:1.1rem;margin-bottom:1rem;color:var(--accent-cyan)">🎯 Currently Seeking</h4>
             <p style="color:var(--text-secondary);line-height:1.7">
-              <strong>AI Engineer / ML Engineer / AI Developer</strong> roles where I can build production AI systems, 
+              <strong>Full-Stack AI Engineer / AI Engineer / AI Developer</strong> roles where I can build production-style AI + SaaS systems,
               work with LLMs, and ship features that matter. <strong>Remote-friendly, ready to start immediately.</strong>
             </p>
           </div>
@@ -470,35 +513,58 @@
       </div>
       
       <div style="margin-top:4rem;padding:2.5rem;background:var(--bg-card);border-radius:16px;border:1px solid var(--border)">
-        <h3 style="font-size:1.8rem;margin-bottom:2rem;text-align:center;color:var(--text-primary)">Technical Skills</h3>
-        <div style="display:grid;grid-template-columns:1fr;gap:2rem">
-          <div>
-            <h4 style="font-size:1.1rem;margin-bottom:1rem;color:var(--accent-cyan)">AI/ML</h4>
-            <p style="color:var(--text-secondary);line-height:1.8;font-size:0.95rem">
-              LangChain, LangGraph, RAG, FAISS, Pinecone, ChromaDB, Sentence Transformers, 
-              XGBoost, Ollama, GPU (CUDA), Multi-Agent Systems, LLMOps
-            </p>
+        <h3 style="font-size:1.8rem;margin-bottom:2rem;text-align:center;color:var(--text-primary)">Core Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h4>AI / LLMs</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">RAG</span>
+              <span class="skill-tag">LangChain</span>
+              <span class="skill-tag">FAISS</span>
+              <span class="skill-tag">ChromaDB</span>
+              <span class="skill-tag">OpenAI</span>
+              <span class="skill-tag">Groq</span>
+              <span class="skill-tag">AWS Bedrock</span>
+              <span class="skill-tag">LLM workflows</span>
+              <span class="skill-tag">OCR / Textract</span>
+            </div>
           </div>
-          <div>
-            <h4 style="font-size:1.1rem;margin-bottom:1rem;color:var(--accent-cyan)">Backend</h4>
-            <p style="color:var(--text-secondary);line-height:1.8;font-size:0.95rem">
-              FastAPI, Flask, Python Async, PostgreSQL, Redis, JWT Auth, REST APIs, 
-              Vector Search, Document Processing, Web Scraping
-            </p>
+          <div class="skill-group">
+            <h4>Backend</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">Flask</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">Async processing</span>
+              <span class="skill-tag">JWT auth</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Redis</span>
+            </div>
           </div>
-          <div>
-            <h4 style="font-size:1.1rem;margin-bottom:1rem;color:var(--accent-cyan)">Frontend</h4>
-            <p style="color:var(--text-secondary);line-height:1.8;font-size:0.95rem">
-              React, Next.js, TypeScript, TanStack Query, Streamlit, Responsive Design, 
-              Real-time UI Updates, UX Design
-            </p>
+          <div class="skill-group">
+            <h4>Frontend</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Streamlit</span>
+              <span class="skill-tag">Responsive UI</span>
+            </div>
           </div>
-          <div>
-            <h4 style="font-size:1.1rem;margin-bottom:1rem;color:var(--accent-cyan)">Cloud/DevOps</h4>
-            <p style="color:var(--text-secondary);line-height:1.8;font-size:0.95rem">
-              AWS (EC2, Bedrock, Textract), Docker, Vercel, Cloudflare, GitHub Actions, 
-              CI/CD, Production Deployment
-            </p>
+          <div class="skill-group">
+            <h4>Cloud / DevOps</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS ECS Fargate</span>
+              <span class="skill-tag">RDS</span>
+              <span class="skill-tag">S3</span>
+              <span class="skill-tag">CloudFront</span>
+              <span class="skill-tag">WAF</span>
+              <span class="skill-tag">ALB / HTTPS</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">GitHub Actions</span>
+              <span class="skill-tag">Vercel</span>
+            </div>
           </div>
         </div>
       </div>
@@ -508,18 +574,91 @@
   <section id="projects">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Featured Project</h2>
-        <p class="section-subtitle">Production-scale AI platform with enterprise-grade architecture</p>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Two full-stack platforms I designed, built, and deployed end-to-end.</p>
       </div>
 
       <div class="featured-project">
-        <div class="featured-badge">🚀 FLAGSHIP PROJECT</div>
+        <div class="featured-badge">🚀 FLAGSHIP SAAS</div>
+        <div class="featured-content">
+          <h3 class="featured-title">Multi-Tenant AI Storefront + POS SaaS</h3>
+          <p class="featured-tagline">Full-Stack, Multi-Tenant SaaS Platform</p>
+
+          <div class="saas-mock" role="img" aria-label="Illustrative sample UI mock of the SaaS merchant dashboard with bilingual interface, feature tiles, and a POS receipt workflow">
+            <div class="saas-mock-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="saas-mock-url">ai-storefront-platform · merchant dashboard (sample UI)</span>
+              <span class="saas-lang">EN / ع</span>
+            </div>
+            <div class="saas-mock-body">
+              <div class="saas-tile"><span>Storefront</span><strong>Checkout + delivery</strong></div>
+              <div class="saas-tile"><span>POS</span><strong>Receipt workflow</strong></div>
+              <div class="saas-tile"><span>Inventory</span><strong>Variants + stock</strong></div>
+              <div class="saas-pos">
+                <div class="saas-pos-row">POS · Cashier — sample receipt</div>
+                <div class="saas-pos-row muted">Scan item → choose variant → checkout → print receipt</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="featured-description">
+            A production-style, full-stack SaaS platform for merchants — with storefront checkout, a POS
+            cashier workflow, inventory tracking, product variants, customer records, sales analytics,
+            shipping / delivery, bilingual English / Arabic UI, and AI-assisted dashboard workflows.
+          </p>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <i class="fas fa-store"></i>
+              <h4>Multi-Tenant Merchant Workflows</h4>
+              <p>Built merchant workflows across storefront, dashboard, and POS, with per-tenant data isolation.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-boxes-stacked"></i>
+              <h4>Inventory & Catalog</h4>
+              <p>Inventory, stock movements, product variants, customer history, and sales reporting.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-server"></i>
+              <h4>Production-Style Architecture</h4>
+              <p>FastAPI, PostgreSQL, Redis, Next.js, TypeScript, Docker, and AWS deployment services.</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-language"></i>
+              <h4>Bilingual UI + AI Assist</h4>
+              <p>English / Arabic UI support and an AI-assisted dashboard experience for everyday tasks.</p>
+            </div>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">AWS ECS</span>
+            <span class="tech-tag">RDS</span>
+            <span class="tech-tag">S3</span>
+            <span class="tech-tag">CloudFront</span>
+            <span class="tech-tag">WAF</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Vercel</span>
+            <span class="tech-tag">LLMs</span>
+          </div>
+          <div class="featured-links">
+            <a href="https://ai-storefront-platform.vercel.app/store/rami-demo-store" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Demo / Case Study</a>
+            <a href="https://github.com/afif103/ai-storefront-platform" target="_blank" rel="noopener" class="btn btn-secondary"><i class="fab fa-github"></i> View Code</a>
+          </div>
+          <p class="featured-note"><i class="fas fa-circle-info"></i> Live demo may require backend / demo availability.</p>
+        </div>
+      </div>
+
+      <div class="featured-project">
+        <div class="featured-badge">⭐ AI PLATFORM</div>
         <div class="featured-content">
           <h3 class="featured-title">APE (AI Productivity Engine)</h3>
-          <p class="featured-tagline">Full-Stack Production AI Platform</p>
+          <p class="featured-tagline">Full-Stack AI Platform (production-style)</p>
           <p class="featured-description">
-            Enterprise-grade AI platform delivering 5 core capabilities through a unified interface. 
-            Built with production-first architecture achieving sub-200ms response times for 100+ concurrent users. 
+            A full-stack, production-style AI platform delivering multiple capabilities through a unified interface.
+            Built with a production-first architecture (FastAPI + PostgreSQL + Redis + ChromaDB) and designed for low-latency responses under concurrent use.
             Features multi-agent orchestration, RAG pipelines, and async batch processing with real-time tracking.
           </p>
           <div class="feature-grid">
@@ -575,7 +714,7 @@
 
       <div class="section-header" style="margin-top:5rem">
         <h2 class="section-title">More Projects</h2>
-        <p class="section-subtitle">Additional production AI applications showcasing diverse capabilities</p>
+        <p class="section-subtitle">Focused AI demo apps showcasing diverse capabilities — RAG, LLMs, ML, and computer vision.</p>
       </div>
 
       <div class="projects-grid">
@@ -685,7 +824,7 @@
       <div class="footer-content">
         <div class="footer-section">
           <h3>Rami Afif</h3>
-          <p>AI Engineer specializing in production-grade LLMOps and full-stack AI systems.</p>
+          <p>Full-Stack AI Engineer building production-style AI + SaaS systems.</p>
           <div class="social-links">
             <a href="https://linkedin.com/in/rami-afif" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/afif103" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
