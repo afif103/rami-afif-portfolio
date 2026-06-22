@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rami-afif-portfolio.vercel.app/sitemap.xml
